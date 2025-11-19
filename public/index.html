@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>67play</title>
+    <link rel="icon" type="https://i.postimg.cc/MKrm4FCR/Mesa-de-trabajo-2.png" href="https://i.postimg.cc/MKrm4FCR/Mesa-de-trabajo-2.png">
+  <link rel="https://i.postimg.cc/MKrm4FCR/Mesa-de-trabajo-2.png" href="https://i.postimg.cc/MKrm4FCR/Mesa-de-trabajo-2.png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="game_shop.css">
+  <link rel="stylesheet" href="game_chart_bg.css">
+  <link rel="stylesheet" href="game_plus.css">
+</head>
+
+<body>
+  <!-- Added home screen section before game -->
+  <div id="home-screen" class="home-screen">
+    <div class="home-background" id="homeBackgroundContainer"></div>
+    
+    <div class="home-content">
+      <!-- Imagen de fondo se maneja en CSS, pero si quieres una <img> explícita, puedes agregar aquí -->
+      <!-- <img src="fondo.png" alt="Imagen de fondo" class="background-image"> -->
+      
+      <button class="play-button" id="playButton" onclick="startGame()">
+        <img id="playButtonImage" src="https://i.postimg.cc/hGvjKGQP/Mesa-de-trabajo-2.png" alt="Play Button" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Game screen (initially hidden) -->
+  <div id="game-screen" class="game-screen hidden">
+    <!-- компактный топбар (не ломает разметку) -->
+    <div id="ux-topbar" class="ux-topbar">
+      <div class="brand">67gotchi</div>
+      <div class="spacer"></div>
+      <button id="ux-fullscreen" class="chip square" title="Fullscreen">⤢</button>
+    </div>
+
+    <div id="game-container">
+      <div id="game-window">
+        <div id="screen">
+          <!-- layers -->
+          <div class="vignette"></div>
+          <div class="crt-scanline"></div>
+          <div class="grid"></div>
+          <div class="stars"></div>
+
+          <div id="market-cap" class="hud-text">MCAP: $0</div>
+
+          <!-- 🎨 ПЕРСОНАЖ РЕПЛЕЙСЕННЫЙ ПОР ИЗОБРАЖЕНИЕМ -->
+          <div id="alon-character">
+            <img src="https://i.postimg.cc/6qMgFhKc/gotchi2.png" alt="67gotchi Character">
+          </div>
+
+          <div id="event-log" class="hud-text"></div>
+        </div>
+
+        <div id="ui-panel">
+          <div id="stats-panel">
+            <div class="stat">
+              <label>HYPE</label>
+              <div class="bar-container"><div id="hype-bar" class="bar"></div></div>
+            </div>
+            <div class="stat">
+              <label>FAITH</label>
+              <div class="bar-container"><div id="faith-bar" class="bar"></div></div>
+            </div>
+            <div class="stat">
+              <label>FUD</label>
+              <div class="bar-container"><div id="fud-bar" class="bar fud"></div></div>
+            </div>
+          </div>
+
+          <div id="actions-panel">
+            <button id="action-shill" class="pixel-btn" data-beep><span>1</span> Shill on X</button>
+            <button id="action-ama" class="pixel-btn" data-beep><span>2</span> Do shit</button>
+            <button id="action-ban" class="pixel-btn" data-beep><span>3</span> Ignore FUD</button>
+            <button id="action-contest" class="pixel-btn" data-beep><span>4</span> Build...</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- футер -->
+  <footer id="page-footer">
+    <a href="https://x.com/pumpgotchi" target="_blank" rel="noreferrer" class="footer-link-x">
+      <img src="https://i.postimg.cc/TPf39tH3/x-logo.png" alt="ChanGotchi Token" class="token-capsule">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.6l-5.165-6.75-5.917 6.75h-3.31l7.73-8.835L.424 2.25h6.6l4.759 6.236L17.119 2.25h.125zm-1.161 17.52h1.833L7.084 4.126H5.117l12.926 15.644z"/>
+      </svg>
+    </a>
+    <span>|</span>
+    <a href="https://pump.fun/coin/Gq91iCZp9i8YTPVSNSDMc4TDrPdBEM6qHdiSX8Yspump" target="_blank" rel="noreferrer" class="footer-link-token">
+      <img src="https://i.postimg.cc/d1FrGRGB/pump-fun-logo.png" alt="ChanGotchi Token" class="token-capsule">
+    </a>
+  </footer>
+
+  <div id="win-screen" class="hidden final-screen">
+    <h1>TO THE MOON!</h1>
+    <p>You've reached $1,000,000 MCAP!</p>
+    <button class="pixel-btn" onclick="goHome()">Go Home</button>
+  </div>
+  <div id="lose-screen" class="hidden final-screen">
+    <h1>RUGPULL!</h1>
+    <p id="lose-reason"></p>
+    <button class="pixel-btn" onclick="goHome()">Go Home</button>
+  </div>
+
+  <!-- scripts -->
+  <script src="game-home.js"></script>
+  <script src="game.js"></script>
+  <script src="game_dop.js"></script>
+  <script src="game_shop.js"></script>
+  <script src="game_chart_bg.js"></script>
+  <script src="game_market_drift.js"></script>
+  <script src="game_plus.js"></script>
+</body>
+</html>
